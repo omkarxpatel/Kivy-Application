@@ -78,9 +78,6 @@ class MainApp(MDApp):
                 toast("Sending Bots")
                 
                 kahoot(game_pin, bot_names, bot_amount, self.root)
-                
-                
-
     
     
 MainApp().run()
