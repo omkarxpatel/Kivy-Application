@@ -1,0 +1,89 @@
+<MainPage>:
+    name: "main_page"
+
+    MDCard:
+        size_hint: None, None
+        size: 780, 825
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 10
+        padding: 50
+        spacing: 30
+        orientation: 'vertical'
+        ripple_behavior: True
+        md_bg_color: app.theme_cls.primary_light
+
+    MDCard:
+        size_hint: None, None
+        size: 730, 775
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 10
+        padding: 50
+        spacing: 50
+        orientation: 'vertical'
+
+
+        MDLabel:
+            text: "Welcome!"
+            
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            font_size: 50
+            padding_y: -10
+            bold: True
+
+
+        MDTextField:
+            id: gamepin
+            hint_text: "Game Pin"
+
+            icon_right: "pin"
+            write_tab: False
+            helper_text: "Maximum Length is 6"
+            helper_text_mode: "on_error"
+            
+            max_text_length: 6
+            size_hint_x: None
+            width: 500
+            font_size: 30
+
+            pos_hint: {"center_x": 0.5}
+        
+
+        MDTextField:
+            id: amount
+            hint_text: "Amount of Bots"
+
+            icon_right: "robot"
+            write_tab: False
+
+            size_hint_x: None
+            width: 500
+            font_size: 30
+
+            pos_hint: {"center_x": 0.5}
+
+
+        MDTextField:
+            id: botnames
+            hint_text: "Bot Names"
+
+            icon_right: "shield-account-outline"
+            write_tab: False
+
+            size_hint_x: None
+            width: 500
+            font_size: 30
+
+            pos_hint: {"center_x": 0.5}
+
+
+        MDRaisedButton:
+            text: "CONNECT"
+
+            font_size: 25
+            size_hint: (.75, .25)
+            pos_hint: {"center_x": 0.5}
+
+            on_release:
+                root.manager.current="Login_User"

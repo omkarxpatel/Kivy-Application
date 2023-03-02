@@ -1,0 +1,94 @@
+<CreateUser>:
+    name: "create_user"
+
+    MDCard:
+        size_hint: None, None
+        size: 780, 825
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 10
+        padding: 50
+        spacing: 30
+        orientation: 'vertical'
+        ripple_behavior: True
+        md_bg_color: app.theme_cls.primary_light
+        
+
+    MDCard:
+
+        size_hint: None, None
+        size: 730, 775
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        elevation: 10
+        padding: 25
+        spacing: 30
+        orientation: 'vertical'
+
+
+        MDLabel:
+            text: "Create Account"
+            halign: "center"
+            font_size: 60
+            bold: True
+
+
+        MDTextField:
+            id: email
+            hint_text: "Email"
+
+            icon_right: "email"
+            write_tab: False
+
+            size_hint_x: None
+            width: 500
+            font_size: 30
+
+            pos_hint: {"center_x": 0.5}
+
+
+        MDTextField:
+            id: password
+            hint_text: "Password"
+            password_mask: "•"
+
+            icon_right: "key-variant"
+            helper_text: "Maximum Length is 20"
+            helper_text_mode: "on_error"
+            write_tab: False
+            
+            max_text_length: 20
+            size_hint_x: None
+            width: 500
+            font_size: 30
+
+            pos_hint: {"center_x": 0.5}
+            password: True
+
+
+        MDRaisedButton:
+            text: "CREATE ACCOUNT"
+            font_size: 30
+            bold: True   
+            size_hint: (.75, .25)
+            pos_hint: {"center_x": 0.5}
+            on_press: app.start_user_screen()  
+
+
+        MDTextButton:
+            text: "Login"
+            halign: "center"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_press: root.manager.current="Login_User" 
+
+
+        MDTextButton:
+            text: "Kahoot Spoofer"
+            halign: "center"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_press: root.manager.current="Main_Page" 
+
+
+        MDLabel:
+            text: " "
+            halign: "center"
+            valighn: "down"
