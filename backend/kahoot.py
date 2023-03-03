@@ -1,23 +1,49 @@
+import time
 from kivymd.toast import toast
-import requests
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
 
 def kahoot():
-    
+    service = Service(executable_path='/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome(service=service)
+    driver.get("https://kahootbot.org")
 
-    game_pin = "5500119"
-    username = "Player1"
+    # toast("Fetching Browser...")
 
-    payload = {"gameid": game_pin, "username": username}
-    response = requests.post("https://kahoot.it/rest/authenticate", json=payload)
+    try:
+        pinXpath = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[1]/div/input')))
+        nickXpath = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[2]/div/input')))
+        button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[3]/button')))
+        
+        # toast("Fetching xPaths...")
+        
+    except NoSuchElementException:
+        # toast("Error: Element not found.")
+        driver.quit()
+        return
 
-    two_factor_auth = response.json()["twoFactorAuth"]
+    try:
+        nickXpath.send_keys("name")
+        pinXpath.send_keys("550782")
+        driver.execute_script("arguments[0].click();", button)  
 
-    payload = {"gameid": game_pin, "username": username, "twoFactorAuth": two_factor_auth}
-    response = requests.put("https://kahoot.it/rest/authenticate", json=payload)
+        
+        # toast("Sending Bots...")
+        
+    except ElementNotInteractableException:
+        # toast("Error: Button not interactable.")
+        driver.quit()
+        return
 
-    kahoot_session_token = response.json()["kahootSessionToken"]
+    try:
+        time.sleep(100)
+    finally:
+        driver.quit()
 
-    join_game_endpoint = f"https://kahoot.it/rest/games/{game_pin}/join"
-    headers = {"Authorization": kahoot_session_token}
-    response = requests.post(join_game_endpoint, headers=headers)
 
+kahoot()
