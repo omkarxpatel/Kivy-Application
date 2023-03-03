@@ -76,7 +76,7 @@ class MainApp(MDApp):
                 bot_names = self.root.get_screen(current_screen).ids['botnames'].text
                 
                 if game_pin is not None and (bot_names is not None):               
-                    kahoot(game_pin, bot_names, self.root)
+                    kahoot(game_pin, bot_names)
     
     
 MainApp().run()
