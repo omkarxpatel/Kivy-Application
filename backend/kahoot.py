@@ -27,7 +27,9 @@ def kahoot(game_pin, bot_names):
             
         except NoSuchElementException:
             print("Error: Element not found")
-            driver.quit()
+            
+            for driver in drivers:
+                driver.quit()
             return
 
         try:
@@ -40,7 +42,9 @@ def kahoot(game_pin, bot_names):
             
         except ElementNotInteractableException:
             print("Error: Button not interactable")
-            driver.quit()
+            
+            for driver in drivers:
+                driver.quit()
             return
 
     try:
