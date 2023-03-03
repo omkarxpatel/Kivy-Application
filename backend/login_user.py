@@ -3,7 +3,7 @@ import base64
 import json
 
 def check_user_login_values(username, password):
-        with open("login_values.txt", "r") as file:
+        with open("database/login_values.txt", "r") as file:
             data = file.read()
         
         if data is not None:

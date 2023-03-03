@@ -45,7 +45,7 @@ def is_valid_password(email, password, phone_number, root):
         
 def create_database_entry(email, password, phone_number, root):
 
-    with open("login_values.txt", "r") as file:
+    with open("database/login_values.txt", "r") as file:
         data = file.read()
     
     if data is not None:
@@ -54,7 +54,7 @@ def create_database_entry(email, password, phone_number, root):
 
         data[email] = f"{password}"
         
-        with open("login_values.txt", "w") as file:
+        with open("database/login_values.txt", "w") as file:
             file.write(json.dumps(data))
     
     print("Created user:", email)
