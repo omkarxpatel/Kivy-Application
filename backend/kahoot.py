@@ -47,6 +47,8 @@ def kahoot(game_pin, bot_names):
                 driver.quit()
             return
 
+        time.sleep(5)
+
     try:
         time.sleep(200)
         
