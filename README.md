@@ -4,3 +4,5 @@ to run this program make this path
 
 file contents:
 `{}`
+
+run `main.py`
