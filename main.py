@@ -74,10 +74,9 @@ class MainApp(MDApp):
             if current_screen == "Main_Page":
                 game_pin = self.root.get_screen(current_screen).ids['gamepin'].text
                 bot_names = self.root.get_screen(current_screen).ids['botnames'].text
-                bot_amount = self.root.get_screen(current_screen).ids['amount'].text
-                toast("Sending Bots")
                 
-                kahoot(game_pin, bot_names, bot_amount, self.root)
+                if game_pin is not None and (bot_names is not None):               
+                    kahoot(game_pin, bot_names, self.root)
     
     
 MainApp().run()
