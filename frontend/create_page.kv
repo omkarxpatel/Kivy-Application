@@ -14,7 +14,6 @@
         
 
     MDCard:
-
         size_hint: None, None
         size: 730, 775
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
@@ -79,6 +78,13 @@
             halign: "center"
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
             on_press: root.manager.current="Login_User" 
+
+
+        MDTextButton:
+            text: "Main Page"
+            halign: "center"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_press: root.manager.current="Main_Page" 
 
 
         MDLabel:
