@@ -24,6 +24,9 @@ class LoginUser(Screen):
 class CreateUser(Screen):
     pass
 
+class KahootPage(Screen):
+    pass
+
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
@@ -43,7 +46,9 @@ class MainApp(MDApp):
     
         screen_manager.add_widget(LoginUser(name="Login_User"))
         screen_manager.add_widget(CreateUser(name="Create_User"))
+        
         screen_manager.add_widget(MainPage(name="Main_Page"))
+        screen_manager.add_widget(KahootPage(name="Kahoot_Page"))
         
         
             
@@ -71,7 +76,8 @@ class MainApp(MDApp):
                     toast("Successful Login.")
                     
         else:
-            if current_screen == "Main_Page":
+            if current_screen == "Kahoot_Page":
+                toast("Sending Bots...")
                 game_pin = self.root.get_screen(current_screen).ids['gamepin'].text
                 bot_names = self.root.get_screen(current_screen).ids['botnames'].text
                 
