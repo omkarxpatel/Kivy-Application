@@ -8,6 +8,11 @@ from kivy.uix.screenmanager import (Screen, ScreenManager, ScreenManagerExceptio
            FallOutTransition, RiseInTransition, NoTransition,
            CardTransition)
 
+
+from assets.secrets.spotify_secrets import username, clientID, clientSecret, redirectURI
+from backend.main_pages.spotify import play_song, generate_similar_playlist
+import spotipy
+
 from backend.start_pages.create_user import check_user_create_values
 from backend.start_pages.login_user import check_user_login_values
 from backend.main_pages.kahoot import kahoot
@@ -27,6 +32,8 @@ class CreateUser(Screen):
 class KahootPage(Screen):
     pass
 
+class SpotifyPage(Screen):
+    pass
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
@@ -49,13 +56,13 @@ class MainApp(MDApp):
         
         screen_manager.add_widget(MainPage(name="Main_Page"))
         screen_manager.add_widget(KahootPage(name="Kahoot_Page"))
+        screen_manager.add_widget(SpotifyPage(name="Spotify_Page"))
         
         
-            
         return screen_manager
             
             
-    def start_user_screen(self):
+    def start_user_screen(self, item = None):
         # email = self.root.ids.email.text
         current_screen = self.root.current
         if current_screen in ["Create_User", "Login_User"]: 
@@ -83,6 +90,18 @@ class MainApp(MDApp):
                 
                 if game_pin is not None and (bot_names is not None):               
                     kahoot(game_pin, bot_names)
+                    
+            if current_screen == "Spotify_Page":
+                spotifyObject = spotipy.Spotify(auth=spotipy.SpotifyOAuth(clientID,clientSecret,redirectURI).get_access_token()["access_token"])
+                
+                if item == "play":
+                    search_query = self.root.get_screen(current_screen).ids['song'].text
+                    play_song(spotifyObject, search_query)
+                    
+                else:
+                    toast("Generating Playilist")
+                    playlist_url = self.root.get_screen(current_screen).ids['playlist_link'].text
+                    generate_similar_playlist(spotifyObject, playlist_url)
     
     
 MainApp().run()

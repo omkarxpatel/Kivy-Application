@@ -1,2 +1,6 @@
-database*
 __pycache__*
+.DS_Store
+.cache*
+
+database*
+spotify_secrets.py
