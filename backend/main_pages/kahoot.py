@@ -19,9 +19,9 @@ def kahoot(game_pin, bot_names):
         print("Fetching Browser...")
 
         try:
-            pinXpath = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[1]/div/input')))
-            nickXpath = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[2]/div/input')))
-            button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[3]/button')))
+            pinXpath = WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[1]/div/input')))
+            nickXpath = WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[2]/div/input')))
+            button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="content-wrap"]/div[1]/div[2]/div[3]/button')))
             
             print("Fetching xPaths...")
             
