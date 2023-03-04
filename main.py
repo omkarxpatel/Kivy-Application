@@ -8,9 +8,9 @@ from kivy.uix.screenmanager import (Screen, ScreenManager, ScreenManagerExceptio
            FallOutTransition, RiseInTransition, NoTransition,
            CardTransition)
 
-from backend.create_user import check_user_create_values
-from backend.login_user import check_user_login_values
-from backend.kahoot import kahoot
+from backend.start_pages.create_user import check_user_create_values
+from backend.start_pages.login_user import check_user_login_values
+from backend.main_pages.kahoot import kahoot
 
 
 Window.size = (400,450)
