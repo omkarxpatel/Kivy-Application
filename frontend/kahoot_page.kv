@@ -12,6 +12,7 @@
         ripple_behavior: True
         md_bg_color: app.theme_cls.primary_light
 
+
     MDCard:
         size_hint: None, None
         size: 730, 775
@@ -20,22 +21,30 @@
         padding: 50
         spacing: 50
         orientation: 'vertical'
-
-        BoxLayout:
+        
+        
+        MDBoxLayout:
             orientation: 'horizontal'
-            height: dp(56)
+            size_hint_y: None
+            height: 50
+            
 
             MDIconButton:
                 icon: "arrow-left-thick"
-                pos_hint: {"left": -0.1, "center_y": 0.5}
+                pos_hint: {'center_y': 0.5}
+                user_font_size: '30sp'
                 on_press: root.manager.current = "Main_Page"
 
-        MDLabel:
-            text: "Kahoot Botter"
-            halign: 'center'
-            valign: 'center'
-            font_size: dp(24)
-            bold: True
+
+            MDLabel:
+                text: "Kahoot Botter      "
+                halign: 'center'
+                valign: 'center'
+                font_size: dp(24)
+                bold: True
+                size_hint_x: None
+                width: 500
+                pos_hint: {"center_y": 0.5}
 
 
         MDTextField:
@@ -77,6 +86,7 @@
             pos_hint: {"center_x": 0.5}
 
             on_press: app.start_user_screen()  
+
 
         MDLabel:
             text: " "
