@@ -1,6 +1,5 @@
 from kivymd.toast import toast
 import json
-import base64
 import re
 
 
@@ -50,7 +49,6 @@ def create_database_entry(email, password, phone_number, root):
     
     if data is not None:
         data = json.loads(data)
-        # password = base64.b64encode(password.encode("utf-8"))
 
         data[email] = f"{password}"
         

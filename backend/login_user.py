@@ -1,5 +1,4 @@
 from kivymd.toast import toast
-import base64
 import json
 
 def check_user_login_values(username, password):
@@ -12,7 +11,6 @@ def check_user_login_values(username, password):
             try:
                 values = data.get(username)
                 check_pass = values.split(" ")[0]
-                # check_pass = base64.b64decode(check_pass).decode("utf-8")
                 
                 if password == check_pass:
                     return True
