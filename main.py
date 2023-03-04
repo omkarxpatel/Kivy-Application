@@ -88,20 +88,30 @@ class MainApp(MDApp):
                 game_pin = self.root.get_screen(current_screen).ids['gamepin'].text
                 bot_names = self.root.get_screen(current_screen).ids['botnames'].text
                 
-                if game_pin is not None and (bot_names is not None):               
+                if (bot_names is not " "*len(bot_names)) and (game_pin is not " "*len(game_pin)):
                     kahoot(game_pin, bot_names)
+                else:
+                    toast("Invalid Queries")
                     
             if current_screen == "Spotify_Page":
-                spotifyObject = spotipy.Spotify(auth=spotipy.SpotifyOAuth(clientID,clientSecret,redirectURI).get_access_token()["access_token"])
+                spotifyObject = spotipy.Spotify(auth=spotipy.SpotifyOAuth(clientID,clientSecret,redirectURI).get_cached_token()["access_token"])
                 
                 if item == "play":
                     search_query = self.root.get_screen(current_screen).ids['song'].text
-                    play_song(spotifyObject, search_query)
+                    
+                    if search_query is not " "*len(search_query):
+                        play_song(spotifyObject, search_query)
+                    else:
+                        toast("Invalid Search Query")
                     
                 else:
                     toast("Generating Playilist")
                     playlist_url = self.root.get_screen(current_screen).ids['playlist_link'].text
-                    generate_similar_playlist(spotifyObject, playlist_url)
+                    
+                    if search_query is not " "*len(search_query):
+                        generate_similar_playlist(spotifyObject, playlist_url)
+                    else:
+                        toast("Invalid Search Query")
     
     
 MainApp().run()
