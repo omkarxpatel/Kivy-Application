@@ -35,8 +35,8 @@ class MainApp(MDApp):
     def build(self):
         # self.fps_monitor_start()
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Blue"
-        self.theme_cls.primary_hue = "400"
+        self.theme_cls.primary_palette = "Amber"
+        self.theme_cls.primary_hue = "200"
 
         self.theme_cls.accent_palette = "Teal"
         self.theme_cls.accent_hue = "200"
