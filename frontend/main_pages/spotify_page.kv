@@ -38,9 +38,11 @@
 
             MDLabel:
                 text: "Spotify Player      "
+                
                 halign: 'center'
                 valign: 'center'
                 font_size: dp(24)
+
                 bold: True
                 size_hint_x: None
                 width: 500
@@ -68,7 +70,7 @@
             size_hint: (.75, .25)
             pos_hint: {"center_x": 0.5}
 
-            on_press: app.start_user_screen("play")  
+            on_press: app.start_user_screen("play")
 
 
         MDTextField:
@@ -92,4 +94,4 @@
             size_hint: (.75, .25)
             pos_hint: {"center_x": 0.5}
 
-            on_press: app.start_user_screen("generate")  
+            on_press: app.start_user_screen("generate")

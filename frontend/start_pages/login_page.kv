@@ -69,22 +69,20 @@
             font_size: 30
             size_hint: (.75, .25)
             pos_hint: {"center_x": 0.5}
-            on_press: app.start_user_screen()   
-            bold: True     
+            on_press: app.start_user_screen()
+            bold: True
 
 
         MDTextButton:
             text: "Create Account"
-            halign: "center"
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
-            on_press: root.manager.current="Create_User" 
+            on_press: root.manager.current="Create_User"
 
 
         MDTextButton:
             text: "Main Page"
-            halign: "center"
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
-            on_press: root.manager.current="Main_Page" 
+            on_press: root.manager.current="Main_Page"
 
 
         MDLabel:

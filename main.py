@@ -54,6 +54,7 @@ class SpotifyPage(Screen):
 class MainApp(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+    
 
     def build(self):
         # self.fps_monitor_start()

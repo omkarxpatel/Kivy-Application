@@ -39,7 +39,7 @@
             font_size: 25
             size_hint: (.75, .25)
             pos_hint: {"center_x": 0.5}
-            on_press: root.manager.current="Kahoot_Page" 
+            on_press: root.manager.current="Kahoot_Page"
 
 
         MDRaisedButton:
@@ -47,10 +47,16 @@
             font_size: 25
             size_hint: (.75, .25)
             pos_hint: {"center_x": 0.5}
-            on_press: root.manager.current="Spotify_Page" 
+            on_press: root.manager.current="Spotify_Page"
 
 
         MDLabel:
             text: " "
             halign: "center"
             valighn: "down"
+
+
+        MDTextButton:
+            text: "Log Out"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_press: root.manager.current="Login_User"
