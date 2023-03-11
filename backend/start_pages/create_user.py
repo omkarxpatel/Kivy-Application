@@ -10,9 +10,12 @@ def check_user_create_values(email, password, phone_number, root):
 def is_valid_email(email, password, phone_number, root):
     if email is not None:
 
-        if len(email) <= 5:
-            toast("Your email must be at minimum 5 characters")
-
+        if len(email) <= 7:
+            toast("Your email must be at minimum 7 characters")
+       
+        elif not re.search("@", email):
+            toast("You must have a \"@\" in your email.")
+            
         elif re.search("\s", email):
             toast("You cannot have a space in your email.")
 

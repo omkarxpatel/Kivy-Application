@@ -135,7 +135,7 @@ class MainApp(MDApp):
                         self.root.get_screen(current_screen).ids["playlist_link"].text
                     )
 
-                    if search_query is not " " * len(search_query):
+                    if playlist_url is not " " * len(playlist_url):
                         generate_similar_playlist(spotifyObject, playlist_url)
                     else:
                         toast("Invalid Search Query")
