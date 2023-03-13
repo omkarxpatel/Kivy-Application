@@ -50,6 +50,8 @@ class KahootPage(Screen):
 class SpotifyPage(Screen):
     pass
 
+class DownloadPage(Screen):
+    pass
 
 class MainApp(MDApp):
     def __init__(self, **kwargs):
@@ -74,6 +76,7 @@ class MainApp(MDApp):
         screen_manager.add_widget(MainPage(name="Main_Page"))
         screen_manager.add_widget(KahootPage(name="Kahoot_Page"))
         screen_manager.add_widget(SpotifyPage(name="Spotify_Page"))
+        screen_manager.add_widget(DownloadPage(name="Download_Page"))
 
         return screen_manager
 
